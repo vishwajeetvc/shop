@@ -26,22 +26,27 @@ function Item({ id, name, expDate, items }) {
 }
 
 export const Order = () => {
+
   const [data, setData] = useState(d);
+
+  function handleChange(e) {
+    const value = e.target.value;
+    console.log("+" + value + "+");
+    if (value == "") {
+      setData(d);
+      return;
+    }
+    setData(() => {
+      return data.filter((item) => {
+        return item.name.includes(value);
+      });
+    });
+  }
   return (
     <Body className={"py-1"}>
       <div className="px-4 text-[14px] bg-gray-100 border rounded">
         <input
-          onChange={(e) => {
-            const value = e.target.value;
-            //const filterData = data.filter((item)=>item.name==value);
-            //console.log(filterData);
-            //setData(filterData);
-            setData( ()=> {
-              return data.filter( item => {
-                 return item.name.includes(value);
-              })
-            })
-          }}
+          onChange={handleChange}
           type="text"
           placeholder="Search by name or data"
           className="bg-gray-100 py-2 w-full border-none outline-none"
