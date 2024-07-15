@@ -22,9 +22,9 @@ export default function NavBar() {
       </nav>
 
       {/* right nav bar*/}
-      <div className={`${isOpen ? "block" : "hidden"} absolute w-[80%] bg-white border right-0 h-full z-10 top-0 px-4 pt-[50px] shadow-2xl`}>
+      <div className={`${isOpen ? "block" : "hidden"} absolute w-[80%] bg-white border right-[-10%]  z-10 top-0 px-4 pt-[50px] shadow-2xl h-screen`}>
         {/*top log and cross button*/}
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center pr-5">
           <div>
             <img src={logo} alt="logo" />
           </div>
@@ -32,7 +32,6 @@ export default function NavBar() {
             ✖
           </button>
         </div>
-
         <div className="my-[50px]">
           <NavigationButton label="Home" to="/"  onClick={handleNav}/>
           <NavigationButton label="Account" to="/account"  onClick={handleNav}/>

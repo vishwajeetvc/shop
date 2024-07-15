@@ -4,11 +4,9 @@ import NavBar from "./components/NavBar";
 function App() {
   return (
     <div className="flex justify-center">
-      <div className="w-[90%]">
-
+      <div className="w-[90%] md:w-[500px] relative">
         <NavBar />
-        <Outlet/>
-
+        <Outlet />
       </div>
     </div>
   );

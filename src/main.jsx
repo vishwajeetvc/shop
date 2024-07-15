@@ -2,7 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AdminDashBoard from "./components/pages/AdminDashBoard.jsx";
+import NewDialog from "./components/pages/NewDialog.jsx";
+import NewCustomer from "./components/pages/NewCustomer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,15 +23,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <div>Dashboard</div>,
+        element: <AdminDashBoard/>,
       },
       {
         path: "/newcustomer",
-        element: <div>New Customer</div>,
+        element: <NewCustomer/>
       },
       {
         path: "/order",
         element: <div>Order</div>,
+      },
+      {
+        path: "/newdialog",
+        element: <NewDialog/>,
       },
     ],
   },
