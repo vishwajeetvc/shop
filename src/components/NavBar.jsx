@@ -1,6 +1,7 @@
 import { useState } from "react";
 import logo from "../assets/Logo.png";
 import { NavLink } from "react-router-dom";
+import Body from "./Body";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function NavBar() {
   }
 
   return (
-    <>
+    <Body>
       {/* Top nav bar*/}
       <nav className="flex justify-between items-center py-4">
         <div>
@@ -40,7 +41,7 @@ export default function NavBar() {
           <NavigationButton label="New Customer" to="/newcustomer"  onClick={handleNav}/>
         </div>
       </div>
-    </>
+    </Body>
   );
 }
 

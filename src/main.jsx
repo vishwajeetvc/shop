@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AdminDashBoard from "./components/pages/AdminDashBoard.jsx";
 import NewDialog from "./components/pages/NewDialog.jsx";
 import NewCustomer from "./components/pages/NewCustomer.jsx";
+import { Order } from "./components/pages/Order.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/order",
-        element: <div>Order</div>,
+        element: <Order/>,
       },
       {
         path: "/newdialog",

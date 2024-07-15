@@ -5,7 +5,7 @@ export default function BlackButtonLink({ label, to }) {
     <>
       <NavLink
         to={to}
-        className={`bg-black text-white block text-center rounded p-1`}
+        className={`bg-black text-white block text-center rounded p-2`}
       >
         {label}
       </NavLink>
