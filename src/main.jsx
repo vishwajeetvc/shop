@@ -8,6 +8,7 @@ import AdminDashBoard from "./components/pages/AdminDashBoard.jsx";
 import NewDialog from "./components/pages/NewDialog.jsx";
 import NewCustomer from "./components/pages/NewCustomer.jsx";
 import { Order } from "./components/pages/Order.jsx";
+import ShowOrder from "./components/pages/ShowOrder.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,19 +25,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <AdminDashBoard/>,
+        element: <AdminDashBoard />,
       },
       {
         path: "/newcustomer",
-        element: <NewCustomer/>
+        element: <NewCustomer />,
       },
       {
         path: "/order",
-        element: <Order/>,
+        element: <Order />,
       },
       {
         path: "/newdialog",
-        element: <NewDialog/>,
+        element: <NewDialog />,
+      },
+      {
+        path: "/showorder",
+        element: <ShowOrder/>,
       },
     ],
   },

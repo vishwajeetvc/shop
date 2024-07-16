@@ -11,7 +11,7 @@ export default function NavBar() {
   }
 
   return (
-    <Body>
+    <Body className={`border-b`}>
       {/* Top nav bar*/}
       <nav className="flex justify-between items-center py-4">
         <div>
