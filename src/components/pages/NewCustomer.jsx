@@ -15,9 +15,9 @@ export default function NewCustomer() {
           <Input label="Name no" placeholder="Full Name" />
           <Input label="Address" placeholder="Address" />
 
-          <div className="pt-4">
+          <button className="pt-4">
             <BlackButton label="New" />
-          </div>
+          </button>
         </form>
       </div>
     </Body>
