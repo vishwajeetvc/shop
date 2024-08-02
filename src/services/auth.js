@@ -1,4 +1,10 @@
+import conf from "./config/conf"
+
 export class AuthService{
+    url;
+    constructor() {
+        url = conf.url
+    }
 
     async login({email,password}) {
         return
@@ -9,7 +15,7 @@ export class AuthService{
     async logout() {
         return
     }
-    async changePassword({email, password}) {
+    async changePassword({username, password}) {
         return
     }
 
