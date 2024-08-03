@@ -2,6 +2,7 @@ import { useState } from "react";
 import BlackButton from "../BlackButton";
 import Body from "../Body";
 import Input from "../Input";
+import userService from "../../services/userService";
 
 export default function NewCustomer() {
   const custumerDetails = {
@@ -23,6 +24,7 @@ export default function NewCustomer() {
       setWarn("Check mobile number...");
       return;
     }
+    userService.addNewUser(detail);
     console.log(detail);
   }
 
