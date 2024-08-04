@@ -1,28 +1,26 @@
 import conf from "./config/conf";
 
 export class UserService {
-    // url;
-    // constructor() {
-    //     this.url = conf.url;
-    // }
+    url;
+    constructor() {
+        this.url = conf.url;
+    }
 
     async addNewUser({ name, mobile, address }) {
         try {
-            // console.log(conf.url);
-            const result = await fetch(`http://localhost:6060/addUser`, {
+            // api call
+            const result = await fetch(`${conf.url}/addUser`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ name, mobile, address }),
             });
-            console.log(result.json());
-            return result;
+            let data = await result.json();
+            return data;
         } catch (err) {
-            console.log(err);
-            return err
+            return {err:"Can't connect Now"}
         }
-        // api call
     }
 }
 

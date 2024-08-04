@@ -14,6 +14,15 @@ export default function NewCustomer() {
   const [warn, setWarn] = useState(false);
   const [error, setError] = useState(false);
 
+  function checkUser(e){
+    setDetail({ ...detail, mobile: e.target.value })
+    if (String(e.target.value).length === 10) {
+      console.log(detail.mobile);
+    }
+    setWarn(false)
+    setError(false)
+    }
+
   function handle(e) {
     e.preventDefault();
     if (!detail.name || !detail.address || !detail.mobile) {
@@ -24,8 +33,15 @@ export default function NewCustomer() {
       setWarn("Check mobile number...");
       return;
     }
-    userService.addNewUser(detail);
-    console.log(detail);
+    userService.addNewUser(detail).then((result) => {
+      console.log(result);
+      if (result.error) {
+        setError(result.error);
+      }
+      if (result.success) {
+        console.log(result.success);
+      }
+    });
   }
 
   return (
@@ -37,11 +53,7 @@ export default function NewCustomer() {
             type="number"
             placeholder="Mob. No."
             warn={warn}
-            onChange={(e) => {
-              setDetail({ ...detail, mobile: e.target.value })
-              setWarn(false)
-              setError(false)
-              }
+            onChange={(e) => checkUser(e)
             }  
           />
           <Input
