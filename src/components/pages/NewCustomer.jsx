@@ -17,6 +17,7 @@ export default function NewCustomer() {
   function checkUser(e){
     setDetail({ ...detail, mobile: e.target.value })
     if (String(e.target.value).length === 10) {
+      // wase to ham e.target.value le sakte hai but hamko detail.mobile hi chahiye
       console.log(detail.mobile);
     }
     setWarn(false)
