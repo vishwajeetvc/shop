@@ -3,7 +3,7 @@ function Warn({label}){
     <h2 className="text-red-500 text-[12px] p-1">{label}</h2>
   </>
 }
-export default function Input({ label, placeholder, type, warn = false, onChange }) {
+export default function Input({ label, placeholder, type, warn = false, onChange,value }) {
   // console.log(max);
   return (
     <div className="text-[14px]">
@@ -11,7 +11,7 @@ export default function Input({ label, placeholder, type, warn = false, onChange
         <p>{label}</p>
       </div>
       <div>
-        <input className="border w-full px-2 py-1 rounded" type={type} placeholder={placeholder} onChange={(e)=>onChange(e)}/>
+        <input className="border w-full px-2 py-1 rounded" type={type} value={value} placeholder={placeholder} onChange={(e)=>onChange(e)}/>
       </div>
       {warn ? <Warn label={warn}/> : <></> }
     </div>

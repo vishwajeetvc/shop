@@ -22,6 +22,23 @@ export class UserService {
             return {err:"Can't connect Now"}
         }
     }
+
+    async checkUser({ mobile }) {
+        try {
+            const result = await fetch(`${conf.url}/checkUser`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ mobile}),
+            });
+            let data = await result.json();
+            return data;
+        } catch (err) {
+            console.log(err);
+            return {err:"Can't connect Now"}
+        }
+    }
 }
 
 const userService = new UserService();
