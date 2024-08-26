@@ -9,7 +9,7 @@ export class UserService {
     async addNewUser({ name, mobile, address }) {
         try {
             // api call
-            const result = await fetch(`${conf.url}/addUser`, {
+            const result = await fetch(`${conf.url}users/addUser`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -25,7 +25,7 @@ export class UserService {
 
     async checkUser({ mobile }) {
         try {
-            const result = await fetch(`${conf.url}/checkUser`, {
+            const result = await fetch(`${conf.url}users/checkUser`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

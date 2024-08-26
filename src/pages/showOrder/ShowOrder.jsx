@@ -1,4 +1,4 @@
-import Body from "../Body";
+import Body from "../../layout/Body";
 import shirt from "../../assets/shirt.png";
 import { useState } from "react";
 

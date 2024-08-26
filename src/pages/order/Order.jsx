@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Body from "../Body";
+import Body from "../../layout/Body";
 import { useState } from "react";
 
 let d = [

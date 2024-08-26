@@ -1,7 +1,7 @@
 import { useState } from "react";
-import BlackButton from "../BlackButton";
-import Body from "../Body";
-import Input from "../Input";
+import BlackButton from "../../components/BlackButton";
+import Body from "../../layout/Body";
+import Input from "../../components/Input";
 import userService from "../../services/userService";
 
 export default function NewCustomer() {
@@ -21,28 +21,39 @@ export default function NewCustomer() {
     setError(false);
     if (String(e.target.value).length === 10) {
       // wase to ham e.target.value le sakte hai but hamko detail.mobile hi chahiye
-      userService.checkUser({ mobile: e.target.value }).then((result) => {
-        if (result.data) {
-          let data = result.data[0];
-          if (data.last_name === null) {
-            setDetail({
-              name: data.first_name,
-              mobile: data.contact,
-              address: data.address,
-            });
+      userService
+        .checkUser({ mobile: e.target.value })
+        .then((result) => {
+          if (result.data) {
+            let data = result.data[0];
+            if (data.last_name === null) {
+              setDetail({
+                name: data.first_name,
+                mobile: data.contact,
+                address: data.address,
+              });
+            } else {
+              setDetail({
+                name: data.first_name + data.last_name,
+                mobile: data.contact,
+                address: data.address,
+              });
+            }
+            setWarn("User Already Exist.");
+            setNext(true);
           } else {
-            setDetail({
-              name: data.first_name + data.last_name,
-              mobile: data.contact,
-              address: data.address,
-            });
+            setNext(false);
           }
-          setWarn("User Already Exist.");
-          setNext(true);
-        }
-      }).catch((err) => {
-        setError(err.err);
-      })
+        })
+        .catch((err) => {
+          setError(err.err);
+          setNext(false);
+        });
+      // console.log(detail)
+    } else {
+      if (String(e.target.value).length > 10) {
+        setWarn("Mobile no must be 10 digits.")
+      }
     }
   }
 
@@ -61,17 +72,20 @@ export default function NewCustomer() {
       setWarn("Check mobile number...");
       return;
     }
-    userService.addNewUser(detail).then((result) => {
-      console.log(result);
-      if (result.error) {
-        setError(result.error);
-      }
-      if (result.success) {
-        console.log(result.success);
-      }
-    }).catch((err) => {
-      setError(err.err)
-    })
+    userService
+      .addNewUser(detail)
+      .then((result) => {
+        console.log(result);
+        if (result.error) {
+          setError(result.error);
+        }
+        if (result.success) {
+          console.log(result.data);
+        }
+      })
+      .catch((err) => {
+        setError(err.err);
+      });
   }
 
   return (
@@ -93,6 +107,7 @@ export default function NewCustomer() {
             onChange={(e) => {
               setDetail({ ...detail, name: e.target.value });
               setError(false);
+              console.log("yy");
             }}
           />
           <Input

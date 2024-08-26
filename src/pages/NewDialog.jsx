@@ -1,5 +1,5 @@
-import BlackButtonLink from "../BlackButtonLink";
-import Body from "../Body";
+import BlackButtonLink from "../components/BlackButton";
+import Body from "../layout/Body";
 
 export default function NewDialog({}){
   return <Body>

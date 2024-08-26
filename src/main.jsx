@@ -4,11 +4,11 @@ import App from "./App.jsx";
 import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AdminDashBoard from "./components/pages/AdminDashBoard.jsx";
-import NewDialog from "./components/pages/NewDialog.jsx";
-import NewCustomer from "./components/pages/NewCustomer.jsx";
-import { Order } from "./components/pages/Order.jsx";
-import ShowOrder from "./components/pages/ShowOrder.jsx";
+import AdminDashBoard from "./pages/admin/AdminDashBoard.jsx";
+import NewDialog from "./pages/NewDialog.jsx";
+import NewCustomer from "./pages/newCustumer/NewCustomer.jsx";
+import { Order } from "./pages/order/Order.jsx";
+import ShowOrder from "./pages/showOrder/ShowOrder.jsx";
 
 const router = createBrowserRouter([
   {
