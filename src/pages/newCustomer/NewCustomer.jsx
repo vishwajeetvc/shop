@@ -1,6 +1,5 @@
 import { useState } from "react";
 import BlackButton from "../../components/BlackButton";
-import Body from "../../layout/Body";
 import Input from "../../components/Input";
 import userService from "../../services/userService";
 
@@ -20,7 +19,6 @@ export default function NewCustomer() {
     setWarn(false);
     setError(false);
     if (String(e.target.value).length === 10) {
-      // wase to ham e.target.value le sakte hai but hamko detail.mobile hi chahiye
       userService
         .checkUser({ mobile: e.target.value })
         .then((result) => {
@@ -40,7 +38,7 @@ export default function NewCustomer() {
               });
             }
             setWarn("User Already Exist.");
-            setNext(true);
+            setNext(data.id);
           } else {
             setNext(false);
           }
@@ -59,7 +57,9 @@ export default function NewCustomer() {
 
   function redirect(e) {
     e.preventDefault();
-    console.log("next");
+    if (next) {
+      
+    }
   }
 
   function handle(e) {
@@ -89,9 +89,8 @@ export default function NewCustomer() {
   }
 
   return (
-    <Body className={"bg-gray-400"}>
-      <div className="flex items-center justify-center h-[600px]">
-        <form className="bg-white px-5 w-full rounded-lg py-8 flex flex-col gap-1 shadow-lg">
+      <div className="flex justify-center h-[600px]">
+        <form className="bg-white px-5 w-full  mt-6 mb-auto rounded-lg py-8 flex flex-col gap-1 shadow-lg">
           <Input
             value={detail.mobile || ""}
             label="Mobile no"
@@ -107,7 +106,7 @@ export default function NewCustomer() {
             onChange={(e) => {
               setDetail({ ...detail, name: e.target.value });
               setError(false);
-              console.log("yy");
+              // console.log("yy");
             }}
           />
           <Input
@@ -138,6 +137,5 @@ export default function NewCustomer() {
           )}
         </form>
       </div>
-    </Body>
   );
 }

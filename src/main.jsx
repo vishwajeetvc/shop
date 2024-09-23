@@ -5,10 +5,13 @@ import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AdminDashBoard from "./pages/admin/AdminDashBoard.jsx";
-import NewDialog from "./pages/NewDialog.jsx";
-import NewCustomer from "./pages/newCustumer/NewCustomer.jsx";
+import NewCustomer from "./pages/newCustomer/NewCustomer.jsx";
 import { Order } from "./pages/order/Order.jsx";
 import ShowOrder from "./pages/showOrder/ShowOrder.jsx";
+import Login from "./pages/admin/auth/login.jsx";
+import Home from "./pages/home/Home.jsx";
+import ShowCustumerDetail from "./pages/showCustomerDetail/ShowCustomerDetail.jsx";
+import MeasurementList from "./pages/measurementList/MeasurementList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>Home</div>,
+        element: <Home />,
       },
       {
         path: "/account",
@@ -36,13 +39,21 @@ const router = createBrowserRouter([
         element: <Order />,
       },
       {
-        path: "/newdialog",
-        element: <NewDialog />,
-      },
-      {
         path: "/showorder",
         element: <ShowOrder/>,
       },
+      {
+        path: "/login",
+        element:<Login />
+      },
+      {
+        path: "/showCustumerDetail",
+        element: <ShowCustumerDetail />,
+      },
+      {
+        path: "/measurementlist",
+        element: <MeasurementList />,
+      }
     ],
   },
 ]);

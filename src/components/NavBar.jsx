@@ -11,9 +11,9 @@ export default function NavBar() {
   }
 
   return (
-    <Body className={`border-b`}>
+    <Body className={`border-b bg-slate-100`}>
       {/* Top nav bar*/}
-      <nav className="flex justify-between items-center py-4">
+      <nav className="flex justify-between items-center py-2">
         <div>
           <img src={logo} alt="logo" />
         </div>
@@ -23,7 +23,7 @@ export default function NavBar() {
       </nav>
 
       {/* right nav bar*/}
-      <div className={`${isOpen ? "block" : "hidden"} absolute w-[80%] bg-white border right-[-10%]  z-10 top-0 px-4 pt-[50px] shadow-2xl h-screen`}>
+      <div className={`${isOpen ? "block" : "hidden"} absolute w-[65%] bg-slate-100 border right-[-10%]  z-10 top-0 px-4 py-2 shadow-2xl h-screen`}>
         {/*top log and cross button*/}
         <div className="flex justify-between items-center pr-5">
           <div>
@@ -33,7 +33,7 @@ export default function NavBar() {
             ✖
           </button>
         </div>
-        <div className="my-[50px]">
+        <div className="my-2">
           <NavigationButton label="Home" to="/"  onClick={handleNav}/>
           <NavigationButton label="Account" to="/account"  onClick={handleNav}/>
           <NavigationButton label="Dashboard" to="/dashboard"  onClick={handleNav}/>

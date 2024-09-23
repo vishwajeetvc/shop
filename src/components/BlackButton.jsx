@@ -1,4 +1,4 @@
-export default function BlackButtonLink({ label, to }) {
+export default function BlackButton({ label, to }) {
   return (
       <div
         to={to}

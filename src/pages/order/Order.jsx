@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import Body from "../../layout/Body";
 import { useState } from "react";
 
 let d = [
@@ -26,7 +25,7 @@ export const Order = () => {
     });
   }
   return (
-    <Body className={"py-4"}>
+    <div className={"py-4"}>
       <div className="px-4 text-[14px] bg-gray-100 border rounded">
         <input
           onChange={handleChange}
@@ -36,7 +35,7 @@ export const Order = () => {
         />
       </div>
 
-      <div className="bg-white rounded-xl flex flex-col gap-2 my-4">
+      <div className=" rounded-xl flex flex-col gap-2 my-4">
         {data.map((item) => {
           return (
             <NavLink key={item.id} to="/showorder">
@@ -53,14 +52,14 @@ export const Order = () => {
           No more items!
         </div>
       </div>
-    </Body>
+    </div>
   );
 };
 
 
 function Item({ id, name, expDate, items }) {
   return (
-    <div className="text-[14px] px-4 py-4 text-gray-800 hover:text-red-700 hover:shadow-xl shadow-rose-50 border rounded-lg">
+    <div className="text-[14px] bg-white px-4 py-4 text-gray-800 hover:text-red-700 hover:shadow-xl shadow-rose-50 border rounded-lg">
       <div>
         <p className="font-bold py-1 text-gray-700 text-[18px]">
           {name[0].toUpperCase() + name.slice(1)}
